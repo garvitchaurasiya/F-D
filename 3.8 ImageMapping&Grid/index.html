@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            display: grid;
+            border: 2px solid black;
+            height: 500px;
+            width: 500px;
+            grid-template-rows: 150px 150px;
+            grid-template-columns: 1fr 1fr 1fr;
+            /* grid-template-columns: repeat(3, 1fr); */
+        }
+        .outer :nth-child(1){
+            background-color: rebeccapurple;
+        }
+        .outer :nth-child(2){
+            background-color: green;
+        }
+        .outer :nth-child(3){
+            background-color: yellow;
+        }
+        .outer :nth-child(4){
+            background-color: grey;
+        }
+        .outer :nth-child(5){
+            background-color: violet;
+            /* grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 2; */
+            grid-row: 1/2;
+            grid-column: 2/3;
+        }
+        .outer :nth-child(6){
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <a href="https://www.amazon.in/" target="_blank"> -->
+        <!-- <img src="https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/main_image_star-forming_region_carina_nircam_final-1280.jpg"
+            usemap="#mapping" />
+
+        <map name="mapping">
+            <area style="background-color: red;" shape="rect" coords="126,86,280,221" href="https://www.amazon.in/" />
+        </map> -->
+
+    <!-- </a> -->
+
+    <!-- Grid -->
+    <div class="outer">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+
+</html>

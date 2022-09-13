@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body>ul{
+    font-size: 20px;
+    margin-left: 10vw;
+    width: 300px;
+}
+#html>ul,
+#mediaElements>ul,
+#css>ul,
+#cssIntro>ul,
+#combinators>ul{
+    display: none;
+}
+#html:hover>ul,
+#mediaElements:hover>ul,
+#css:hover>ul,
+#cssIntro:hover>ul,
+#combinators:hover>ul{
+    display: block;
+}
+a{
+    padding: 0px 15px;
+    color: #00b5ff;
+}
+a:not(:last-child){
+    border-right: 2px solid #00b5ff;
+}

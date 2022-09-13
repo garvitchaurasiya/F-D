@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="hello">
+        Hello
+    </h1>
+
+    <div id="div1">
+        
+    </div>
+
+    
+
+    <button id="button">click me</button>
+    <button id="button1">change background</button>
+    <input type="text" />
+
+    
+    <br>
+    <img id="image" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
+
+    <script>
+
+        // DOM: Document Object Model.
+        // The Document Object Model (DOM) connects web pages to scripts or programming languages by representing the structure of a document—such as the HTML representing a web page—in memory. Usually it refers to JavaScript, even though modeling HTML, SVG, or XML documents as objects are not part of the core JavaScript language.
+
+        // document is a object provided by browser and it's not the part of JavaScript
+
+        // var ele = document.querySelector('#hello');
+        // var ele = document.query
+        // ele.style.color = 'red'
+        // console.log(ele);
+
+        var ele1 = document.getElementsByClassName('hello');
+        console.log(ele1);
+        ele1[0].style.color = 'red'
+        console.log(ele1);
+
+
+        var ele = document.getElementById('image');
+        // var ele = document.getElementsByTagName('img');
+
+        var flag = true;
+
+        // setInterval(()=>{
+        //     if(flag){
+        //         ele.setAttribute('src', "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDJRmZot_SI7oNMJnqZ_iGJiVQcKHlhXsMZXZm0C9piDQ__A2cfroNNOQoibeCCRkPAvY&usqp=CAU");
+        //     }
+        //     else{
+        //         ele.setAttribute('src', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg');
+        //     }
+
+        //     flag = !flag
+        // }, 2000)
+
+        // Creating a tag in with javascript.
+        const div = document.getElementById('div1');
+        
+        const h1 = document.createElement('h1');
+        h1.innerHTML = 'H1 tag inside div'
+        div.appendChild(h1);
+
+        console.log(div);
+        
+
+        // Events:
+
+        // Event Listener: on Single click we can run multiple funtions. This is not the case with button.onclick
+
+        const button = document.getElementById('button');
+
+        button.addEventListener('click', function(){
+            console.log('hello');
+        })
+
+        button.addEventListener('click', function(){
+            console.log('hy!!');
+        })
+        const button1 = document.getElementById('button1');
+        button1.onclick = function(){
+            const Body = document.getElementsByTagName('body');
+            Body[0].style.backgroundColor = 'violet';
+        }
+
+        const inputEle = document.querySelector('input');
+        inputEle.addEventListener('input', (event)=>{
+            console.log(event.target.value);
+        })
+
+
+    </script>
+    
+</body>
+</html>

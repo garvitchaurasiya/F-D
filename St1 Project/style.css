@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tableContainer{
+    width: 80vw;
+}
+.tableContainer table td{
+    padding:10px;
+}
+.tableContainer table{
+    border-bottom: 5px solid;
+    border-right: 5px solid;
+    border-left: 5px solid grey;
+    border-top: 5px solid grey;
+}
+a{
+    padding: 0px 15px;
+    color: #00b5ff;
+}
+a:not(:last-child){
+    border-right: 2px solid #00b5ff;
+}

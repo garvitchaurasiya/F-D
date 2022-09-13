@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello World
+    <script>
+        
+        // const student = {
+        //     pa: 10,
+        //     fnd: 50,
+        //     nalr: 20,
+        //     // sum: ()=>{
+        //         //     console.log(this.pa);   
+        //         //     return (10+50+20);
+        //     // }
+        //     sum: function(){
+        //         console.log(this.pa);     // this keyword is a keyword which refers to an object.
+        //         return (this.pa + this.fnd + this.nalr);
+        //     }
+        // }
+        // console.log(student.sum());
+
+        // // Arrays: It is a datatype which can store multiple value of multiple datatype.
+        
+        // const arr = ['abcd', 23, '1143', true, false];
+        
+        // arr[0] = "bcde";
+        // for(var i=0; i<arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+
+        // for(var ele in arr){        // for-in loop.
+        //     console.log(arr[ele]);
+        // }
+
+        // for(var ele of arr){       // for-of loop.
+        //     console.log(ele);
+        // }
+        
+        // // Callback
+        var nums = [1, 2, 3, 4, 5, 6];
+
+        // nums.forEach( (ele, index, nums)=>{
+        //     console.log(index + " -> " + ele);
+        //     console.log(nums);
+        // } )
+
+        const newNums = nums.forEach((ele)=>{
+            return ele;
+        })
+        console.log(newNums); // undefined.
+
+        // const newNums = nums.map((ele, index, nums)=>{
+        //     // nums[index] = nums[index]+1;
+        //     // console.log(nums[index]);
+        //     return ele
+        //     // return ele>2
+        // })
+        // // console.log(nums);
+        // // console.log(newNums);
+
+        // const newNums2 = nums.filter((ele, index, nums)=>{
+        //     return ele>2;
+        // })
+        // console.log(newNums2);
+
+        // nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // const arrayWithNumsSum = nums.reduce((sum, ele, index, nums)=>{
+        //     return sum+=ele;
+        // })
+
+        // console.log(arrayWithNumsSum);
+
+        const newArray = nums.filter((ele, index)=>{
+            return ele>2;
+        }).reduce((sum, ele)=>{
+            return sum+=ele;
+        })
+
+        console.log(newArray);
+
+    </script>
+</body>
+</html>

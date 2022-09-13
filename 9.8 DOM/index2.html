@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" /> 
+    <button>Add</button>
+
+    <ul>
+        <li onclick="delet()">aaaaaaaa</li>
+    </ul>
+
+    <script>
+        const button = document.querySelector('button');
+        
+        button.onclick = function addNode(){
+            const input = document.querySelector('input');
+            const note = document.createElement('li');
+            note.innerHTML = input.value;
+            note.setAttribute('onclick', 'delet()')
+            input.value = null;
+
+            document.querySelector('ul').append(note);
+
+        }
+
+        function delet(){
+            this.remove();
+            console.log('d');
+        }
+
+        // const note = document.querySelector('li');
+        // note.onclick = ()=>{
+        //     console.log('asdf');
+        // }
+        
+    </script>
+</body>
+</html>

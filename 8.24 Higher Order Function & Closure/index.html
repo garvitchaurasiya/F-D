@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+
+        let arr = [1, 2, 3, 4, true, "abc", "xyz"];
+
+
+        console.log(arr);
+        function getStrings() {
+            const res = [];
+            arr.forEach((element, index) => {
+                if (typeof (element) === "string") {
+                    res.push(element)
+                }
+            })
+            console.log(res);
+        }
+        function getNumbers() {
+            const res = [];
+            arr.forEach((element, index) => {
+                if (typeof (element) === "number") {
+                    res.push(element);
+                }
+            })
+            console.log(res);
+        }
+        
+        
+
+        // Higher Order Function: When a function returns a function or take a function as a argument.
+        
+        // arr = [1, 2, 3, 4, true, "abc", "xyz"];
+        function string(ele){
+            return typeof ele==='string';
+        }
+        function number(ele){
+            return typeof ele ==='number';
+        }
+
+        function higherOrderFunction(arr, fun){
+            const res = [];
+            for(let ele of arr){
+                if(fun(ele)){
+                    res.push(ele);
+                }
+            }
+            return res;
+        }
+        
+        console.log(higherOrderFunction(arr, number));
+
+
+        // Closure: A inner function can access the variables and parameter of outer function.
+
+        function outer(){
+            var name = "hello";
+
+            function inner(){
+                console.log(name);
+            }
+            var name = "HII"
+            return inner;
+
+            // return function(){
+            //     console.log(a);
+            // }
+
+        }
+        outer(); // output -> hello
+        var inner = outer(); // As outer function returns a function.
+        inner(); // output -> hello
+
+
+        // Area of different types of circle using higher order function.
+
+        function completeCircle(){
+            return 1;
+        }
+        function semiCircle(){
+            return 2;
+        }
+        function quarterCircle(){
+            return 4;
+        }
+
+        function calcArea(r, circleType){
+            var d = circleType();
+            console.log(d);
+            return 3.14*r*r/d;
+        }
+
+        console.log(calcArea(10, completeCircle));
+        console.log(calcArea(10, semiCircle));
+        console.log(calcArea(10, quarterCircle));
+
+
+    </script>
+</body>
+
+</html>

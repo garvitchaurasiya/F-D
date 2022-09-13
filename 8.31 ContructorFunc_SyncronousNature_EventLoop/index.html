@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /* This is a contructor function. */
+        // function user(){    
+        //     this.userName = "garvit",
+        //     this.lastName = "chaurasiya"
+        // }
+        // var fun = new user();
+        // console.log(fun);
+
+        // function User(user, last){    
+        //     this.userName = user,
+        //     this.lastName = last
+        // }
+        
+        // var fun = new User("hello", "xyz");
+        // var fun1 = new User('rahul', 'kumar');
+        // console.log(fun, fun1);
+
+        /* 
+            Javascript is a syncronous language and single threaded.
+            JS only has one call stack.
+            JS don't have any method which can stop or manipulate the call stack of JS.
+            setTimeOut, setTimeInterval, console.log are not the part of JS they are web api's.
+        */
+        // console.log("starting point");
+        // setTimeout(()=>{
+        //     console.log("wait for 4 sec");
+        // }, 4000)
+        // setTimeout(function(){
+        //     console.log("wait for 0 sec")
+        // }, 0)
+        // console.log("end point");
+        /* Output: Even if the time is 0sec the output will be:
+            starting point
+            end point
+            wait for 0 sec
+            wait for 4 sec
+        */
+
+        /* Event Loop : JavaScript has a runtime model based on an event loop, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks. This model is quite different from models in other languages like C and Java. */
+
+        // Q:
+        // let val = 0;
+
+        // for(let i=0; i<=10; i++){
+        //     setTimeout(()=>{
+        //         console.log(i);
+        //     }, 1000*i)
+        // }
+
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        for(var i=0; i<10; i++){
+            setTimeout(()=>{
+                console.log(arr[i]);
+            }, 1000)
+        }
+        for(let i=0; i<10; i++){
+            setTimeout(()=>{
+                console.log(arr[i]);
+            }, 1000 )
+        }
+
+
+    </script>
+</body>
+</html>

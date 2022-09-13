@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.linksContainer{
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#videosContainer{
+    width: 80vw;
+}
+#videosContainer div{
+    display:flex;
+    align-items: center;
+    margin-top: 20px;
+}
+#videosContainer p{
+    margin-left: 20px;
+}
+#videosContainer>h2{
+    text-align: center;
+    border: 2px solid #00b5ff;
+}
+#interviewContainer{
+    width: 80vw;
+}
+#interviewContainer>h2{
+    text-align: center;
+    border: 2px solid #00b5ff;
+}
+#interviewContainer>div>h2{
+    border-bottom: 2px solid orangered;
+}
+a{
+    padding: 0px 15px;
+    color: #00b5ff;
+    margin-bottom:15px;
+}
+a:not(:last-child, :nth-child(3)){
+    border-right: 2px solid #00b5ff;
+}

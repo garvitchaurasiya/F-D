@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // function sum(a, b, c){
+        //     return {
+        //         two: function inner(){
+        //             return a+b
+        //         },
+        //         three: ()=>{
+        //             return a+b+c
+        //         }
+        //     }
+        // }
+
+        // var fun = sum(1, 2, 3);
+        // console.log(fun.two());
+        // console.log(fun.three());
+
+        // let count = 0;
+        // function counter(){
+        //     return {
+        //         inc: ()=>{count++},
+        //         dec: ()=>{count--},
+        //         reset: ()=>{count = 0}
+        //     }
+        // }
+
+        // let func = counter();
+        // func.inc();
+        // console.log(count);
+        // func.dec();
+        // func.dec();
+        // console.log(count);
+        // func.reset();
+        // console.log(count);
+
+        
+        // // Prototype????
+
+        let todo = {
+            title: 'Buy Groceries',
+            desc: function(){
+                return `you have to ${this.title}`;
+            }
+        }
+
+        console.log(todo.title);
+        console.log(todo.desc());
+        console.log(todo.toString);
+
+        // console.log(todo.__proto__);
+
+        var arr=[1, 2, 3, 4];
+        arr.push(5);
+        console.log(arr);
+        console.log(typeof arr);    // Array is also object.
+
+</script>
+</body>
+
+</html>
