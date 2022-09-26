@@ -12,7 +12,7 @@
     <button>Add</button>
 
     <ul>
-        <li onclick="delet()">aaaaaaaa</li>
+
     </ul>
 
     <script>
@@ -21,18 +21,19 @@
         button.onclick = function addNode(){
             const input = document.querySelector('input');
             const note = document.createElement('li');
+            note.style.cursor = 'pointer'
             note.innerHTML = input.value;
-            note.setAttribute('onclick', 'delet()')
+            
             input.value = null;
 
             document.querySelector('ul').append(note);
+            
+            note.onclick = ()=>{
+                note.remove();
+            }
 
         }
 
-        function delet(){
-            this.remove();
-            console.log('d');
-        }
 
         // const note = document.querySelector('li');
         // note.onclick = ()=>{

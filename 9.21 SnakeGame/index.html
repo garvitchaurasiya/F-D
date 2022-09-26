@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas style="background-color: peachpuff; border: 10px solid brown" height="400px" width="800px"></canvas>
+
+
+    <script>
+        const canvas = document.querySelector('canvas');
+        
+        const ctx = canvas.getContext('2d');
+
+        // ctx.fillStyle='green';
+        // ctx.fillRect(0, 0, 50, 40);
+
+        let score = 0;
+        let square = 10;
+        let snakeCell = [[0, 0]];
+        let bHeight = 400;
+        let bWidth = 800;
+        let direction = 'right';
+        let gameOver = false;
+        let foodCell = generateRandomCell();
+        let snakeCrowl = 0;
+
+        document.addEventListener('keydown', (e)=>{
+            
+            if(e.key === 'ArrowRight'){
+                direction = 'right';
+            }
+            else if(e.key === 'ArrowLeft'){
+                direction = 'left';   
+            }
+            else if(e.key === 'ArrowUp'){
+                direction = 'up';
+            }
+            else if(e.key === 'ArrowDown'){
+                direction = 'down';
+            }
+            // console.log(direction);
+        })
+        let flag = true;
+        function update(){
+            // console.log('hi');
+            headX = snakeCell[snakeCell.length-1][0];
+            headY = snakeCell[snakeCell.length-1][1];
+
+            let newX;
+            let newY;
+
+            if(direction==='right'){
+                newX = headX + square;
+                newY = headY;
+
+                if(newX === bWidth){
+                    gameOver = true;
+                }
+
+                if(flag) newY-=snakeCrowl;
+                else newY+=snakeCrowl;
+            }
+            else if (direction === 'left'){
+                newX = headX-square;
+                newY = headY;
+
+                if(newX < 0){
+                    gameOver = true;
+                }
+
+                if(flag) newY-=snakeCrowl;
+                else newY+=snakeCrowl;
+            }
+            else if(direction === 'up'){
+                newX = headX;
+                newY = headY-square;
+
+                if(newY < 0){
+                    gameOver = true;
+                }
+
+                if(flag) newX-=snakeCrowl;
+                else newX+=snakeCrowl;
+            }
+            else if(direction==='down'){
+                newX = headX;
+                newY = headY+square;
+
+                if(newY === bHeight){
+                    gameOver = true;
+                }
+
+                if(flag) newX-=snakeCrowl;
+                else newX+=snakeCrowl;
+            }
+
+            if(gameOver){
+                console.log("gameover")
+            }
+            
+            flag = !flag;
+            snakeCell.push([newX, newY]);
+            if(gameOver === true){
+                clearInterval(id);
+                ctx.fillText("Game Over", 350, 200);
+                return;
+            }
+            // snakeCell[0][0]+=square;
+            // console.log(snakeCell);
+
+            // Returns a random integer from 0 to 100:
+            // console.log(newPeiceX);
+
+            if( newX === foodCell[0] && newY ===foodCell[1] ){
+                score++;
+                foodCell = generateRandomCell();
+            }
+            else{
+                snakeCell.shift();
+            }
+            ctx.font = '20px sans-sarif';
+            ctx.fillText(`Score ${score}`, 20, 20);
+            
+        }
+        function draw(){
+            
+            ctx.clearRect(0, 0, bWidth, bHeight);
+            for(let cell of snakeCell){
+                ctx.fillRect(cell[0], cell[1], square, square);
+            }
+            ctx.fillRect(foodCell[0], foodCell[1], square, square);
+        }
+        function generateRandomCell(){
+            return [
+                Math.round(Math.random()*(bWidth - square)/square)*10,
+                Math.round(Math.random()*(bHeight - square)/square)*10
+            ]
+        }
+
+        let id=setInterval(function(){
+            draw();
+            update();
+        }, 100);
+
+    </script>
+</body>
+</html>
