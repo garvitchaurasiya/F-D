@@ -1,0 +1,41 @@
+body{
+    background-color: pink;
+}
+h1{
+    color: blue;
+}
+.container{
+    display: flex;
+    align-items : center;
+    flex-direction: column;
+}
+.task{
+    background-color: cyan;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.removeButton{
+    background-color: rgb(255, 0, 106);
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.upButton{
+    background-color: rgb(0, 204, 255);
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.downButton{
+    background-color: orange;
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
