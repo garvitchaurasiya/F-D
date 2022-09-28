@@ -1,4 +1,4 @@
-function onsubmit(e){
+function onsubmit(e) {
     // e.preventDefault();
     console.log('hi');
 }
@@ -7,7 +7,7 @@ let button = document.querySelector('.addTask');
 // let list = document.createElement('ol')
 let arr = [];
 // console.log(list);
-button.addEventListener("click", (e)=>{
+button.addEventListener("click", (e) => {
     e.preventDefault();
     let input = document.querySelector('input');
     console.log(arr);
@@ -15,15 +15,15 @@ button.addEventListener("click", (e)=>{
 
     let task = document.createElement('div');
     task.setAttribute('class', 'task');
-    task.innerHTML=input.value;
-    
+    task.innerHTML = input.value;
+
     let removeButton = document.createElement('button')
     removeButton.innerHTML = '✕'
     removeButton.setAttribute('class', 'removeButton')
     removeButton.setAttribute('id', arr.length)
     console.log(removeButton)
     task.appendChild(removeButton);
-    
+
     let upButton = document.createElement('button')
     upButton.innerHTML = '↑'
     upButton.setAttribute('class', 'upButton')
@@ -33,47 +33,64 @@ button.addEventListener("click", (e)=>{
     downButton.innerHTML = '↓'
     downButton.setAttribute('class', 'downButton')
     task.appendChild(downButton);
-    
+
     arr.push(task);
-    
-    arr.map((ele, index)=>{
+
+    arr.map((ele, index) => {
         tasks.appendChild(ele)
     })
 
-    removeButton.addEventListener('click', (e)=>{
+    removeButton.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         task.remove();
         let index = removeButton.getAttribute('id');
         arr.splice(index, index);
     })
-    upButton.addEventListener('click', (e)=>{
+    upButton.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        console.log(arr);
 
         let index = removeButton.getAttribute('id');
-        console.log(index);
-        let temp = arr[index-1];
-        arr[index-1] = arr[index];
-        arr[index] = temp;
+        if (index > 0) {
+            removeButton.setAttribute('id', index - 1);
 
-        // console.log(arr[index])
-        // console.log(arr[index].get)
-        // console.log(arr[index].task.removeButton);
+            let prevElement = arr[index - 1];
+            prevElement.querySelector('.removeButton').setAttribute('id', index);
 
-        console.log(arr);
-        console.log('hii')
-        tasks.innerHTML = '';
-        arr.map((ele, index)=>{
-            tasks.appendChild(ele)
-        })
+            console.log(arr[index]);
+            let temp = arr[index - 1];
+            arr[index - 1] = arr[index];
+            arr[index] = temp;
+
+            tasks.innerHTML = '';
+            arr.map((ele, index) => {
+                tasks.appendChild(ele)
+            })
+        }
     })
-    downButton.addEventListener('click', (e)=>{
+    downButton.addEventListener('click', (e) => {
         e.preventDefault();
-        
+
         let index = removeButton.getAttribute('id');
-        arr.splice(index, index);
+        parseInt(index);
+        // if (index < arr.length-1) {
+            
+            removeButton.setAttribute('id', index + 1);
+
+            let nextElement = arr[index];
+            console.log(index+1, arr, nextElement);
+            nextElement.querySelector('.removeButton').setAttribute('id', index);
+
+            let temp = arr[index + 1];
+            arr[index + 1] = arr[index];
+            arr[index] = temp;
+
+            tasks.innerHTML = '';
+            arr.map((ele, index) => {
+                tasks.appendChild(ele)
+            })
+        // }
+
     })
 
 });
