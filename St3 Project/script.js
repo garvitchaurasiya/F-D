@@ -1,12 +1,6 @@
-function onsubmit(e) {
-    // e.preventDefault();
-    console.log('hi');
-}
-
 let button = document.querySelector('.addTask');
-// let list = document.createElement('ol')
 let arr = [];
-// console.log(list);
+
 button.addEventListener("click", (e) => {
     e.preventDefault();
     let input = document.querySelector('input');
@@ -15,8 +9,7 @@ button.addEventListener("click", (e) => {
 
     let task = document.createElement('div');
     task.setAttribute('class', 'task');
-    task.innerHTML = input.value;
-
+    
     let removeButton = document.createElement('button')
     removeButton.innerHTML = '✕'
     removeButton.setAttribute('class', 'removeButton')
@@ -33,6 +26,10 @@ button.addEventListener("click", (e) => {
     downButton.innerHTML = '↓'
     downButton.setAttribute('class', 'downButton')
     task.appendChild(downButton);
+    
+    let span = document.createElement('span');
+    span.innerText = input.value;
+    task.appendChild(span);
 
     arr.push(task);
 
@@ -42,10 +39,33 @@ button.addEventListener("click", (e) => {
 
     removeButton.addEventListener('click', (e) => {
         e.preventDefault();
+        console.log(arr);
 
         task.remove();
         let index = removeButton.getAttribute('id');
-        arr.splice(index, index);
+        for(var i = 0; i<arr.length; i++){
+            let ele = arr[i];
+            let id = ele.querySelector('.removeButton').getAttribute('id');
+            console.log(id);
+        }
+        arr.splice(index, 1);
+
+        for(var i = index; i<arr.length; i++){
+            let ele = arr[i];
+            console.log(ele)
+            let id = ele.querySelector('.removeButton').getAttribute('id');
+            id = parseInt(id);
+            ele.querySelector('.removeButton').setAttribute('id', id-1);
+        }
+        // for(var i = 0; i<arr.length; i++){
+        //     let ele = arr[i];
+        //     let id = ele.querySelector('.removeButton').getAttribute('id');
+        //     console.log(id);
+        // }
+
+        console.log(arr);
+
+
     })
     upButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -57,12 +77,12 @@ button.addEventListener("click", (e) => {
             let prevElement = arr[index - 1];
             prevElement.querySelector('.removeButton').setAttribute('id', index);
 
-            console.log(arr[index]);
             let temp = arr[index - 1];
             arr[index - 1] = arr[index];
             arr[index] = temp;
 
             tasks.innerHTML = '';
+
             arr.map((ele, index) => {
                 tasks.appendChild(ele)
             })
@@ -72,12 +92,12 @@ button.addEventListener("click", (e) => {
         e.preventDefault();
 
         let index = removeButton.getAttribute('id');
-        parseInt(index);
-        // if (index < arr.length-1) {
+        index = parseInt(index);
+        if (index < arr.length-1) {
             
-            removeButton.setAttribute('id', index + 1);
+            removeButton.setAttribute('id', index+1);
 
-            let nextElement = arr[index];
+            let nextElement = arr[index+1];
             console.log(index+1, arr, nextElement);
             nextElement.querySelector('.removeButton').setAttribute('id', index);
 
@@ -89,7 +109,7 @@ button.addEventListener("click", (e) => {
             arr.map((ele, index) => {
                 tasks.appendChild(ele)
             })
-        // }
+        }
 
     })
 

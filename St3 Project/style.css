@@ -4,6 +4,12 @@ body{
 h1{
     color: blue;
 }
+input{
+    padding: 10px;
+}
+.addTask{
+    padding: 10px;
+}
 .container{
     display: flex;
     align-items : center;
@@ -30,6 +36,7 @@ h1{
     border: none;
     cursor: pointer;
     border-radius: 3px;
+    margin-left: 4px;
 }
 .downButton{
     background-color: orange;
@@ -38,4 +45,9 @@ h1{
     border: none;
     cursor: pointer;
     border-radius: 3px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+span{
+    font-weight: 550;
 }
