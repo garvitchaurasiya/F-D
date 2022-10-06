@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--
+        Ajax:
+            -> AJAX = Asynchronous JavaScript And XML.
+            -> AJAX can make a single page website.
+            
+            
+            API: Application programming interface.
+            API's are mechanism that enables two software components to communicate with each other using request and response.
+
+                -> Web API: Easily accessable using HTTP Protocol.
+                -> Local API: Local API's are OS or middleware services offered to an application program.
+                -> Program API: are based on Remote Procedure Call (RPC) technology that makes a remote program component appear local to rest of the software.
+
+            REST API: Representation State Transfer API.
+
+            DIFFERENCES:
+
+            API follows application-application format.
+            REST API are strictly operated on the web concept of client & server.
+            API are not scalable.
+            REST API are scalable due to layered structure.
+
+
+            There are 3 methods to call an API
+            -> XML Request: 
+            -> fetch method: 
+            -> axios: 
+
+    -->
+    <h1>Hello World</h1>
+
+    <script>
+
+        // XML Request
+
+        // const req = new XMLHttpRequest()
+        // // console.log(req);
+
+        // req.open('GET', 'https://inshorts.deta.dev/news?category=science')
+        // req.send();
+
+        // let jsonData;
+        
+        // req.onload = function () {
+
+        //     jsonData = JSON.parse(this.response);
+        //     console.log(jsonData);
+
+
+        //     let arr = jsonData.data;
+
+        //     arr.forEach((ele, index) => {
+        //         const data = document.createElement('img');
+        //         data.setAttribute('src', ele.imageUrl)
+        //         data.style.height = '100px';
+        //         console.log(data);
+
+        //         let body = document.querySelector('body');
+        //         body.appendChild(data);
+        //     })
+
+        // }
+        // console.log(jsonData);
+        // req.onerror = function () {
+        //     console.log(this);
+        // }
+
+        
+        
+        /* Fetch Method:
+            ->Fetch returns a promise
+        */
+
+        fetch('https://inshorts.deta.dev/news?category=science').then((res)=>{
+            
+            console.log(res);
+
+            return res.json(); // The json() method of the Response interface takes a Response stream (readable stream inside body) and reads it to completion. It returns a promise which resolves with the result of parsing the body text as JSON.
+
+        }).then((data)=>{
+
+            jsonData = data;
+            console.log(jsonData);
+
+
+            let arr = jsonData.data;
+            const d = 0;
+
+            arr.forEach((ele, index) => {
+                const d = document.createElement('img');
+                d.setAttribute('src', ele.imageUrl)
+                d.style.height = '100px';
+
+                let body = document.querySelector('body');
+                body.appendChild(d);
+            })
+
+        }).catch((err)=>{
+            console.log(err);
+        })
+
+    </script>
+
+</body>
+
+</html>

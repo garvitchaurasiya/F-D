@@ -4,7 +4,6 @@ let arr = [];
 button.addEventListener("click", (e) => {
     e.preventDefault();
     let input = document.querySelector('input');
-    console.log(arr);
     let tasks = document.querySelector('.tasks');
 
     let task = document.createElement('div');
@@ -14,7 +13,6 @@ button.addEventListener("click", (e) => {
     removeButton.innerHTML = '✕'
     removeButton.setAttribute('class', 'removeButton')
     removeButton.setAttribute('id', arr.length)
-    console.log(removeButton)
     task.appendChild(removeButton);
 
     let upButton = document.createElement('button')
@@ -32,6 +30,7 @@ button.addEventListener("click", (e) => {
     task.appendChild(span);
 
     arr.push(task);
+    input.value = "";
 
     arr.map((ele, index) => {
         tasks.appendChild(ele)
@@ -39,33 +38,21 @@ button.addEventListener("click", (e) => {
 
     removeButton.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(arr);
 
         task.remove();
         let index = removeButton.getAttribute('id');
         for(var i = 0; i<arr.length; i++){
             let ele = arr[i];
             let id = ele.querySelector('.removeButton').getAttribute('id');
-            console.log(id);
         }
         arr.splice(index, 1);
 
         for(var i = index; i<arr.length; i++){
             let ele = arr[i];
-            console.log(ele)
             let id = ele.querySelector('.removeButton').getAttribute('id');
             id = parseInt(id);
             ele.querySelector('.removeButton').setAttribute('id', id-1);
         }
-        // for(var i = 0; i<arr.length; i++){
-        //     let ele = arr[i];
-        //     let id = ele.querySelector('.removeButton').getAttribute('id');
-        //     console.log(id);
-        // }
-
-        console.log(arr);
-
-
     })
     upButton.addEventListener('click', (e) => {
         e.preventDefault();
@@ -98,7 +85,6 @@ button.addEventListener("click", (e) => {
             removeButton.setAttribute('id', index+1);
 
             let nextElement = arr[index+1];
-            console.log(index+1, arr, nextElement);
             nextElement.querySelector('.removeButton').setAttribute('id', index);
 
             let temp = arr[index + 1];
